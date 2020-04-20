@@ -10,10 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".StatsPageActivity"></activity>
-        <activity android:name=".CreateAccountActivity" />
+        <activity
+            android:name=".ui.register.CreateAccountActivity"
+            android:parentActivityName=".ui.login.QuizLoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.login.QuizLoginActivity" />
+        </activity>
+
         <activity
             android:name=".ui.login.QuizLoginActivity"
-            android:label="@string/title_activity_quiz_login" />
+            android:label="@string/title_activity_quiz_login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".QuestionActivity" />
         <activity android:name=".QuizStartActivity" />
     </application>

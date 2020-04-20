@@ -34,7 +34,8 @@ public class LoginViewModel extends ViewModel {
 
         if (currentUser.isLoggedIn()) {
             LoggedInUser data = currentUser;
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
+            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName(),
+                    data.getCorrectAnswers(), data.getIncorrectAnswers())));
         } else {
             loginResult.setValue(new LoginResult(R.string.login_failed));
         }

@@ -94,7 +94,7 @@
         app:srcCompat="@drawable/geo_quiz_title" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"

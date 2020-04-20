@@ -5,13 +5,27 @@ package com.example.basic_geo_quiz_app.ui.login;
  */
 class LoggedInUserView {
     private String displayName;
-    //... other data fields that may be accessible to the UI
+    private int correctAnswers;
+    private int incorrectAnswers;
 
-    LoggedInUserView(String displayName) {
+    LoggedInUserView(String displayName, int correct, int incorrect) {
         this.displayName = displayName;
+        this.correctAnswers = correct;
+        this.incorrectAnswers = incorrect;
+
     }
 
-    String getDisplayName() {
+    protected String getDisplayName() {
         return displayName;
     }
+
+    protected int getCorrectAnswers() {
+        return this.correctAnswers;
+    }
+
+    protected int getIncorrectAnswers() {
+        return this.incorrectAnswers;
+    }
+
 }
+
