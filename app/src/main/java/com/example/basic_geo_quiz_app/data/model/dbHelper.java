@@ -64,10 +64,11 @@ public class dbHelper extends SQLiteOpenHelper {
             ", "+ gameTables.gameAnswers.COLUMN_THREE_NAME+
             " "+ gameTables.gameAnswers.COLUMN_THREE_TYPE+
             ", "+ gameTables.gameAnswers.COLUMN_FOUR_NAME+
-            ", "+"FOREIGN KEY("+gameTables.gameAnswers.COLUMN_THREE_NAME+
-            ") REFERENCES "+gameTables.gameQuestions.TABLE_NAME+"("+
+            " "+gameTables.gameAnswers.COLUMN_FOUR_TYPE+
+            ", "+"FOREIGN KEY("+gameTables.gameAnswers.COLUMN_THREE_NAME+")"+
+                   " REFERENCES "+gameTables.gameQuestions.TABLE_NAME+"("+
                     gameTables.gameQuestions.COLUMN_TWO_NAME+"));";
-
+    
 
     public dbHelper(Context context)
     {
