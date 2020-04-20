@@ -79,6 +79,17 @@ public class dbHelper extends SQLiteOpenHelper {
                     " REFERENCES " + gameRecord.gameQuestions.TABLE_NAME + "(" +
                     gameRecord.gameQuestions.COLUMN_TWO_NAME + "));";
 
+    public static final String SQL_DELETE_ACCOUNT_CREDENTIALS =
+            "DROP TABLE IF EXISTS " + userRecord.accountCredentials.TABLE_NAME;
+    public static final String SQL_DELETE_ACCOUNT_DETAILS =
+            "DROP TABLE IF EXISTS " + userRecord.accountDetails.TABLE_NAME;
+    public static final String SQL_DELETE_ACCOUNT_STATISTICS =
+            "DROP TABLE IF EXISTS " + userRecord.accountStatistics.TABLE_NAME;
+    public static final String SQL_DELETE_GAME_QUESTIONS =
+            "DROP TABLE IF EXISTS " + gameRecord.gameQuestions.TABLE_NAME;
+    public static final String SQL_DELETE_GAME_ANSWERS =
+            "DROP TABLE IF EXISTS " + gameRecord.gameAnswers.TABLE_NAME;
+
 
     public dbHelper(Context context)
     {
@@ -139,14 +150,16 @@ public class dbHelper extends SQLiteOpenHelper {
     public  void onUpgrade(SQLiteDatabase db, int oldVersion,
                            int newVersion)
     {
+        db.execSQL(SQL_DELETE_ACCOUNT_DETAILS);
+        db.execSQL(SQL_DELETE_ACCOUNT_STATISTICS);
+        db.execSQL(SQL_DELETE_ACCOUNT_CREDENTIALS);
+        db.execSQL(SQL_DELETE_GAME_ANSWERS);
+        db.execSQL(SQL_DELETE_GAME_QUESTIONS);
 
+        this.onCreate(db);
     }
 
-    @Override
-    public void onOpen(SQLiteDatabase db)
-    {
 
-    }
 
     private static List readCSV(InputStream csvStream) {
         List resultList = new ArrayList();
