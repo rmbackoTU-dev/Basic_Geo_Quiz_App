@@ -1,0 +1,201 @@
+﻿answer_id,question_id_fk,answer,correct
+1,1,Montgomery,1
+2,1,Auburn,0
+3,1,Huntsville,0
+4,1,Tuscaloosa,0
+5,2,Juneau,1
+6,2,Anchorage,0
+7,2,Fairbanks,0
+8,2,North Pole,0
+9,3,Phoenix,1
+10,3,Tuscon,0
+11,3,Scottsdale,0
+12,3,Flagstaff,0
+13,4,Little Rock,1
+14,4,Fayetteville,0
+15,4,Conway,0
+16,4,Springdale,0
+17,5,Sacramento,1
+18,5,San Jose,0
+19,5,Santa Monica,0
+20,5,Los Angeles,0
+21,6,Denver,1
+22,6,Boulder,0
+23,6,Aspen,0
+24,6,Telluride,0
+25,7,Hartford,1
+26,7,New Haven,0
+27,7,Norwalk,0
+28,7,Bridgeport,0
+29,8,Dover,1
+30,8,New Castle,0
+31,8,Middletown,0
+32,8,Wilmington,0
+33,9,Tallahassee,1
+34,9,Miami,0
+35,9,Orlando,0
+36,9,Jackonville,0
+37,10,Atlanta,1
+38,10,Athens,0
+39,10,Macon,0
+40,10,Kennesaw,0
+41,11,Honolulu,1
+42,11,Kailua-Kona,0
+43,11,Kapolei,0
+44,11,Waipahu,0
+45,12,Boise,1
+46,12,Nampa,0
+47,12,Twin Falls,0
+48,12,Rexburg,0
+49,13,Springfield,1
+50,13,Chicago,0
+51,13,Rockford,0
+52,13,Joliet,0
+53,14,Indianapolis,1
+54,14,South Bend,0
+55,14,Gary,0
+56,14,Bloomington,0
+57,15,Moines,1
+58,15,Sioux City,0
+59,15,Cedar Rapids,0
+60,15,Waterloo,0
+61,16,Topeka,1
+62,16,Wichita,0
+63,16,Manhattan,0
+64,16,Kansas City,0
+65,17,Frankfort,1
+66,17,Bowling Green,0
+67,17,Lexington,0
+68,17,Georgetown,0
+69,18,Baron Rouge,1
+70,18,Alexandria,0
+71,18,Slidell,0
+72,18,New Orleans,0
+73,19,Augusta,1
+74,19,Bangor,0
+75,19,Bar Harbor,0
+76,19,Waterville,0
+77,20,Annapolis,1
+78,20,Baltimore,0
+79,20,Towson,0
+80,20,Bethesda,0
+81,21,Boston,1
+82,21,Plymouth,0
+83,21,Springfield,0
+84,21,Cambridge,0
+85,22,Lansing,1
+86,22,Flint,0
+87,22,Detroit,0
+88,22,Ann Arbor,0
+89,23,Saint Paul,1
+90,23,Duluth,0
+91,23,Bloomington,0
+92,23,Winona,0
+93,24,Jackson,1
+94,24,Laurel,0
+95,24,Biloxi,0
+96,24,Gulfport,0
+97,25,Jefferson City,1
+98,25,St Louis,0
+99,25,Ozark,0
+100,25,Columbia,0
+101,26,Helena,1
+102,26,Billings,0
+103,26,Bozeman,0
+104,26,Great Falls,0
+105,27,Lincoln,1
+106,27,Grand Island,0
+107,27,Omaha,0
+108,27,Nebraska City,0
+109,28,Carson City,1
+110,28,Reno,0
+111,28,Las Vegas,0
+112,28,Sparks,0
+113,29,Concord,1
+114,29,Derry,0
+115,29,Bedford,0
+116,29,Lebanon,0
+117,30,Trenton,1
+118,30,Jersey City,0
+119,30,Trenton,0
+120,30,Princeton,0
+121,31,Santa fe,1
+122,31,Edison,0
+123,31,Hoboken,0
+124,31,Newark,0
+125,32,Albany,1
+126,32,New York,0
+127,32,Buffalo,0
+128,32,Rochester,0
+129,33,Raleigh,1
+130,33,Wilmington,0
+131,33,Greensboro,0
+132,33,Fayetteville,0
+133,34,Bismarck,1
+134,34,Fargo,0
+135,34,Williston,0
+136,34,Dickinson,0
+137,35,Columbus,1
+138,35,Kent,0
+139,35,Cleveland,0
+140,35,Dayton,0
+141,36,Oklahoma City,1
+142,36,Tulsa,0
+143,36,Norman,0
+144,36,Lawton,0
+145,37,Salem,1
+146,37,Bend,0
+147,37,Medford,0
+148,37,Beaverton,0
+149,38,Harrisburg,1
+150,38,Erie,0
+151,38,Philadelphia,0
+152,38,Pittsburg,0
+153,39,Providence,1
+154,39,Newport,0
+155,39,Warwick,0
+156,39,Cranston,0
+157,40,Columbia,1
+158,40,Myrtle Beach,0
+159,40,Greenville,0
+160,40,Charleston,0
+161,41,Pierre,1
+162,41,Sioux Falls,0
+163,41,Aberdeen,0
+164,41,Watertown,0
+165,42,Nashville,1
+166,42,Memphis,0
+167,42,Knoxville,0
+168,42,Chattanooga,0
+169,43,Austin,1
+170,43,Dallas,0
+171,43,Houston,0
+172,43,El Paso,0
+173,44,Salt Lake City,1
+174,44,Logan,0
+175,44,Ogden,0
+176,44,St. George,0
+177,45,Montpelier,1
+178,45,Burlington,0
+179,45,Stowe,0
+180,45,Rutland,0
+181,46,Richmond,1
+182,46,Norfolk,0
+183,46,Williamsburg,0
+184,46,Alexandria,0
+185,47,Olympia,1
+186,47,Seattle,0
+187,47,Spokane,0
+188,47,Tacoma,0
+189,48,Charleston,1
+190,48,Huntington,0
+191,48,Beckley,0
+192,48,Morgantown,0
+193,49,Madison,1
+194,49,Green Bay,0
+195,49,Milwaukee,0
+196,49,Appleton,0
+197,50,Cheyenne,1
+198,50,Casper,0
+199,50,Cody,0
+200,50,Gillette,0
