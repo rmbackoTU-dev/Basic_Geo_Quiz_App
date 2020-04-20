@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
 import com.example.basic_geo_quiz_app.data.LoginRepository;
-import com.example.basic_geo_quiz_app.data.Result;
 import com.example.basic_geo_quiz_app.data.model.LoggedInUser;
 import com.example.basic_geo_quiz_app.R;
 
@@ -31,10 +30,10 @@ public class LoginViewModel extends ViewModel {
 
     public void login(String username, String password) {
         // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+        LoggedInUser currentUser = loginRepository.login(username, password);
 
-        if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
+        if (currentUser.isLoggedIn()) {
+            LoggedInUser data = currentUser;
             loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
         } else {
             loginResult.setValue(new LoginResult(R.string.login_failed));
@@ -65,6 +64,6 @@ public class LoginViewModel extends ViewModel {
 
     // A placeholder password validation check
     private boolean isPasswordValid(String password) {
-        return password != null && password.trim().length() > 5;
+        return password != null && password.trim().length() > 8;
     }
 }
