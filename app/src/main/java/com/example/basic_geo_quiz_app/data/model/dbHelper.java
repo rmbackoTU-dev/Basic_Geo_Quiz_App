@@ -68,7 +68,7 @@ public class dbHelper extends SQLiteOpenHelper {
             ", "+"FOREIGN KEY("+gameTables.gameAnswers.COLUMN_THREE_NAME+")"+
                    " REFERENCES "+gameTables.gameQuestions.TABLE_NAME+"("+
                     gameTables.gameQuestions.COLUMN_TWO_NAME+"));";
-    
+
 
     public dbHelper(Context context)
     {
