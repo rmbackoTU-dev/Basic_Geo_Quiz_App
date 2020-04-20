@@ -120,7 +120,13 @@ public class dbHelper extends SQLiteOpenHelper {
             }
 
             for (String[] answer_field : gameAnswerList) {
-                //todo: add answer csv fields to database
+                data.put(gameTables.gameAnswers.COLUMN_FOUR_NAME, answer_field[0]);
+                data.put(gameTables.gameAnswers.COLUMN_THREE_NAME, answer_field[1]);
+                data.put(gameTables.gameAnswers.COLUMN_TWO_NAME, answer_field[2]);
+                data.put(gameTables.gameAnswers.COLUMN_ONE_NAME, answer_field[3]);
+                newRowId = writableDB.insert(gameTables.gameQuestions.TABLE_NAME,
+                        null, data);
+                data.clear();
             }
 
 
