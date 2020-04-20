@@ -2,6 +2,9 @@ package com.example.basic_geo_quiz_app.data;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.
+ * replaced by userRecord Class
+ * @deprecated
+ * todo replace all mentions of results with userRecord
  */
 public class Result<T> {
     // hide the private constructor to limit subclass types (Success, Error)

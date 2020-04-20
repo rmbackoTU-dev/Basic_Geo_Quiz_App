@@ -5,11 +5,8 @@ import android.content.res.AssetManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
-import android.renderscript.ScriptGroup;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -22,65 +19,65 @@ public class dbHelper extends SQLiteOpenHelper {
     public static final int  DB_VERSION=1;
     public static final String DatabaseName="QuizAppDatabase.db";
     public static final String SQL_CREATE_ACCOUNT_CREDENTIALS=
-            "CREATE TABLE "+ accountTables.accountCredentials.TABLE_NAME+" ("+
-                    accountTables.accountCredentials.COLUMN_ONE_NAME+
-                    " "+ accountTables.accountCredentials.COLUMN_ONE_TYPE+
-                    ", "+ accountTables.accountCredentials.COLUMN_TWO_NAME+
-                    " "+ accountTables.accountCredentials.COLUMN_TWO_TYPE+
-                    ", "+ accountTables.accountCredentials.COLUMN_THREE_NAME+
-                    " "+ accountTables.accountCredentials.COLUMN_THREE_TYPE+
+            "CREATE TABLE " + userRecord.accountCredentials.TABLE_NAME + " (" +
+                    userRecord.accountCredentials.COLUMN_ONE_NAME +
+                    " " + userRecord.accountCredentials.COLUMN_ONE_TYPE +
+                    ", " + userRecord.accountCredentials.COLUMN_TWO_NAME +
+                    " " + userRecord.accountCredentials.COLUMN_TWO_TYPE +
+                    ", " + userRecord.accountCredentials.COLUMN_THREE_NAME +
+                    " " + userRecord.accountCredentials.COLUMN_THREE_TYPE +
                     ");";
 
     public static final String SQL_CREATE_ACCOUNT_DETAILS=
-            "CREATE TABLE "+ accountTables.accountDetails.TABLE_NAME+" ("+
-                    accountTables.accountDetails.COLUMN_ONE_NAME+
-                    " "+ accountTables.accountDetails.COLUMN_ONE_TYPE+
-                    ", "+ accountTables.accountDetails.COLUMN_TWO_NAME+
-                    " "+ accountTables.accountDetails.COLUMN_TWO_TYPE+
-                    ", "+ accountTables.accountDetails.COLUMN_THREE_NAME+
-                    " "+ accountTables.accountDetails.COLUMN_THREE_TYPE+
-                    ", "+ accountTables.accountDetails.COLUMN_FOUR_NAME+
-                    " "+ accountTables.accountDetails.COLUMN_FOUR_TYPE+
-                    ", "+ accountTables.accountDetails.COLUMN_FIVE_NAME+
-                    " "+ accountTables.accountDetails.COLUMN_FIVE_TYPE+
-                    ", "+"FOREIGN KEY("+accountTables.accountDetails.COLUMN_THREE_NAME+
-                    ") REFERENCES  "+accountTables.accountCredentials.TABLE_NAME+"("+
-                     accountTables.accountCredentials.COLUMN_THREE_NAME+")"+
-                    ", "+"FOREIGN KEY("+accountTables.accountDetails.COLUMN_FOUR_NAME+
-                    ") REFERENCES "+accountTables.accountStatistics.TABLE_NAME+"("+
-                    accountTables.accountStatistics.COLUMN_ONE_NAME+"));";
+            "CREATE TABLE " + userRecord.accountDetails.TABLE_NAME + " (" +
+                    userRecord.accountDetails.COLUMN_ONE_NAME +
+                    " " + userRecord.accountDetails.COLUMN_ONE_TYPE +
+                    ", " + userRecord.accountDetails.COLUMN_TWO_NAME +
+                    " " + userRecord.accountDetails.COLUMN_TWO_TYPE +
+                    ", " + userRecord.accountDetails.COLUMN_THREE_NAME +
+                    " " + userRecord.accountDetails.COLUMN_THREE_TYPE +
+                    ", " + userRecord.accountDetails.COLUMN_FOUR_NAME +
+                    " " + userRecord.accountDetails.COLUMN_FOUR_TYPE +
+                    ", " + userRecord.accountDetails.COLUMN_FIVE_NAME +
+                    " " + userRecord.accountDetails.COLUMN_FIVE_TYPE +
+                    ", " + "FOREIGN KEY(" + userRecord.accountDetails.COLUMN_THREE_NAME +
+                    ") REFERENCES  " + userRecord.accountCredentials.TABLE_NAME + "(" +
+                    userRecord.accountCredentials.COLUMN_THREE_NAME + ")" +
+                    ", " + "FOREIGN KEY(" + userRecord.accountDetails.COLUMN_FOUR_NAME +
+                    ") REFERENCES " + userRecord.accountStatistics.TABLE_NAME + "(" +
+                    userRecord.accountStatistics.COLUMN_ONE_NAME + "));";
 
     public static final String SQL_CREATE_ACCOUNT_STATISTICS=
-            "CREATE TABLE "+ accountTables.accountStatistics.TABLE_NAME+" ("+
-                    accountTables.accountStatistics.COLUMN_ONE_NAME+
-                    " "+ accountTables.accountStatistics.COLUMN_ONE_TYPE+
-                    ", "+ accountTables.accountStatistics.COLUMN_TWO_NAME+
-                    " "+ accountTables.accountStatistics.COLUMN_TWO_TYPE+
-                    ", "+ accountTables.accountStatistics.COLUMN_THREE_NAME+
-                    " "+ accountTables.accountStatistics.COLUMN_THREE_TYPE+
+            "CREATE TABLE " + userRecord.accountStatistics.TABLE_NAME + " (" +
+                    userRecord.accountStatistics.COLUMN_ONE_NAME +
+                    " " + userRecord.accountStatistics.COLUMN_ONE_TYPE +
+                    ", " + userRecord.accountStatistics.COLUMN_TWO_NAME +
+                    " " + userRecord.accountStatistics.COLUMN_TWO_TYPE +
+                    ", " + userRecord.accountStatistics.COLUMN_THREE_NAME +
+                    " " + userRecord.accountStatistics.COLUMN_THREE_TYPE +
                     ");";
 
     public static final String SQL_CREATE_GAME_QUESTIONS=
-            "CREATE TABLE "+ gameTables.gameQuestions.TABLE_NAME+" ("+
-            " "+ gameTables.gameQuestions.COLUMN_ONE_NAME+
-            " "+ gameTables.gameQuestions.COLUMN_ONE_TYPE+
-            ", "+ gameTables.gameQuestions.COLUMN_TWO_NAME+
-            " "+ gameTables.gameQuestions.COLUMN_TWO_TYPE+
+            "CREATE TABLE " + gameRecord.gameQuestions.TABLE_NAME + " (" +
+                    " " + gameRecord.gameQuestions.COLUMN_ONE_NAME +
+                    " " + gameRecord.gameQuestions.COLUMN_ONE_TYPE +
+                    ", " + gameRecord.gameQuestions.COLUMN_TWO_NAME +
+                    " " + gameRecord.gameQuestions.COLUMN_TWO_TYPE +
             ");";
 
     public static final String SQL_CREATE_GAME_ANSWERS=
-            "CREATE TABLE "+ gameTables.gameAnswers.TABLE_NAME+" ("+
-            " "+ gameTables.gameAnswers.COLUMN_ONE_NAME+
-            " "+ gameTables.gameAnswers.COLUMN_ONE_TYPE+
-            ", "+ gameTables.gameAnswers.COLUMN_TWO_NAME+
-            " "+ gameTables.gameAnswers.COLUMN_TWO_TYPE+
-            ", "+ gameTables.gameAnswers.COLUMN_THREE_NAME+
-            " "+ gameTables.gameAnswers.COLUMN_THREE_TYPE+
-            ", "+ gameTables.gameAnswers.COLUMN_FOUR_NAME+
-            " "+gameTables.gameAnswers.COLUMN_FOUR_TYPE+
-            ", "+"FOREIGN KEY("+gameTables.gameAnswers.COLUMN_THREE_NAME+")"+
-                   " REFERENCES "+gameTables.gameQuestions.TABLE_NAME+"("+
-                    gameTables.gameQuestions.COLUMN_TWO_NAME+"));";
+            "CREATE TABLE " + gameRecord.gameAnswers.TABLE_NAME + " (" +
+                    " " + gameRecord.gameAnswers.COLUMN_ONE_NAME +
+                    " " + gameRecord.gameAnswers.COLUMN_ONE_TYPE +
+                    ", " + gameRecord.gameAnswers.COLUMN_TWO_NAME +
+                    " " + gameRecord.gameAnswers.COLUMN_TWO_TYPE +
+                    ", " + gameRecord.gameAnswers.COLUMN_THREE_NAME +
+                    " " + gameRecord.gameAnswers.COLUMN_THREE_TYPE +
+                    ", " + gameRecord.gameAnswers.COLUMN_FOUR_NAME +
+                    " " + gameRecord.gameAnswers.COLUMN_FOUR_TYPE +
+                    ", " + "FOREIGN KEY(" + gameRecord.gameAnswers.COLUMN_THREE_NAME + ")" +
+                    " REFERENCES " + gameRecord.gameQuestions.TABLE_NAME + "(" +
+                    gameRecord.gameQuestions.COLUMN_TWO_NAME + "));";
 
 
     public dbHelper(Context context)
@@ -112,19 +109,19 @@ public class dbHelper extends SQLiteOpenHelper {
             gameAnswersIS.close();
 
             for (String[] question_field : gameQuestionList) {
-                data.put(gameTables.gameQuestions.COLUMN_TWO_NAME, question_field[0]);
-                data.put(gameTables.gameQuestions.COLUMN_ONE_NAME, question_field[1]);
-                newRowId = writableDB.insert(gameTables.gameQuestions.TABLE_NAME,
+                data.put(gameRecord.gameQuestions.COLUMN_TWO_NAME, question_field[0]);
+                data.put(gameRecord.gameQuestions.COLUMN_ONE_NAME, question_field[1]);
+                newRowId = writableDB.insert(gameRecord.gameQuestions.TABLE_NAME,
                         null, data);
                 data.clear();
             }
 
             for (String[] answer_field : gameAnswerList) {
-                data.put(gameTables.gameAnswers.COLUMN_FOUR_NAME, answer_field[0]);
-                data.put(gameTables.gameAnswers.COLUMN_THREE_NAME, answer_field[1]);
-                data.put(gameTables.gameAnswers.COLUMN_TWO_NAME, answer_field[2]);
-                data.put(gameTables.gameAnswers.COLUMN_ONE_NAME, answer_field[3]);
-                newRowId = writableDB.insert(gameTables.gameQuestions.TABLE_NAME,
+                data.put(gameRecord.gameAnswers.COLUMN_FOUR_NAME, answer_field[0]);
+                data.put(gameRecord.gameAnswers.COLUMN_THREE_NAME, answer_field[1]);
+                data.put(gameRecord.gameAnswers.COLUMN_TWO_NAME, answer_field[2]);
+                data.put(gameRecord.gameAnswers.COLUMN_ONE_NAME, answer_field[3]);
+                newRowId = writableDB.insert(gameRecord.gameQuestions.TABLE_NAME,
                         null, data);
                 data.clear();
             }

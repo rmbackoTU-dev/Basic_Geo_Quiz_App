@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StatsPage">
+    tools:context=".StatsPageActivity">
 
     <ImageView
         android:id="@+id/title_image4"
