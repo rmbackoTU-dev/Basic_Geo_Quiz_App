@@ -139,11 +139,23 @@ public class RegistrationDataSource {
                     newUserDetails.getStat_id_fk());
             detailValues.put(userRecord.accountDetails.COLUMN_FIVE_TYPE,
                     newUserDetails.getAccount_details_id_pk());
+
+            long newCredRow = writableDatabase.insertOrThrow(userRecord.accountCredentials.TABLE_NAME,
+                    null, credentialValues);
+            long newStatRow = writableDatabase.insertOrThrow(userRecord.accountStatistics.TABLE_NAME,
+                    null, statisticsValues);
+            long detailRow = writableDatabase.insertOrThrow(userRecord.accountDetails.TABLE_NAME,
+                    null, detailValues);
+
+
         } catch (SQLException sqle) {
             sqle.printStackTrace();
-        } finally {
-            return thisUser;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+        return thisUser;
+
     }
 
     public String createHashedPassword(String password, byte[] salt) {
@@ -164,9 +176,9 @@ public class RegistrationDataSource {
             hashedPassword = hexPassword.toString();
         } catch (NoSuchAlgorithmException nsa) {
             nsa.printStackTrace();
-        } finally {
-            return hashedPassword;
         }
+        return hashedPassword;
+
     }
 
     public byte[] generateSalt() {
