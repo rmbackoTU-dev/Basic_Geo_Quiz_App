@@ -28,7 +28,7 @@ public class gameRecord {
         return recordString;
     }
 
-    public static final class gameQuestions extends gameRecord implements BaseColumns
+    public class gameQuestions extends gameRecord implements BaseColumns
     {
         public static final String TABLE_NAME="game_questions";
         public static final String COLUMN_ONE_NAME="question";
@@ -53,7 +53,7 @@ public class gameRecord {
         }
     }
 
-    public static final class gameAnswers extends gameRecord implements BaseColumns
+    public class gameAnswers extends gameRecord implements BaseColumns
     {
         public static final String TABLE_NAME="game_answers";
         public static final String COLUMN_ONE_NAME="correct";
@@ -95,7 +95,7 @@ public class gameRecord {
         }
     }
 
-    public static final class errorRecord extends gameRecord {
+    public static class errorRecord extends gameRecord {
         private Exception error;
 
         public errorRecord(Exception e) {

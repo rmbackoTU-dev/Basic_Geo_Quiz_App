@@ -40,40 +40,48 @@ public class userRecord {
         return recordString;
     }
 
-    public static final class accountCredentials extends userRecord implements BaseColumns
+    public static class accountCredentials extends userRecord implements BaseColumns
     {
         public static final String TABLE_NAME="account_credentials";
         public static final String COLUMN_ONE_NAME="email";
         public static final String COLUMN_TWO_NAME="password_hash";
         public static final String COLUMN_THREE_NAME="account_id_pk";
+        public static final String COLUMN_FOUR_NAME = "password_salt";
         public static final String COLUMN_ONE_TYPE="TEXT";
-        public static final String COLUMN_TWO_TYPE="INTEGER";
+        public static final String COLUMN_TWO_TYPE = "TEXT";
         public static final String COLUMN_THREE_TYPE="INTEGER PRIMARY KEY ASC";
+        public static final String COLUMN_FOUR_TYPE = "BLOB";
 
         private String email;
-        private byte[] passwordHash;
+        private String passwordHash;
         private int account_id_pk;
+        private byte[] passwordSalt;
 
-        public accountCredentials(String emailAddress, byte[] pwHash, int acc_id) {
+        public accountCredentials(String emailAddress, String pwHash, byte[] salt, int acc_id) {
             this.email = emailAddress;
             this.passwordHash = pwHash;
             this.account_id_pk = acc_id;
+            this.passwordSalt = salt;
         }
 
         public String getEmail() {
             return email;
         }
 
-        public byte[] getPasswordHash() {
+        public String getPasswordHash() {
             return passwordHash;
         }
 
         public int getAccount_id_pk() {
             return account_id_pk;
         }
+
+        public byte[] getPasswordSalt() {
+            return passwordSalt;
+        }
     }
 
-    public static final class accountDetails extends userRecord implements BaseColumns
+    public static class accountDetails extends userRecord implements BaseColumns
     {
         public static final String TABLE_NAME="account_details";
         public static final String COLUMN_ONE_NAME="first_name";
@@ -123,7 +131,7 @@ public class userRecord {
         }
     }
 
-    public static final class accountStatistics extends userRecord implements BaseColumns {
+    public static class accountStatistics extends userRecord implements BaseColumns {
         public static final String TABLE_NAME="account_statistics";
         public static final String COLUMN_ONE_NAME="stat_id";
         public static final String COLUMN_TWO_NAME="correct_answers";
@@ -156,7 +164,7 @@ public class userRecord {
         }
     }
 
-    public static final class errorRecord extends userRecord {
+    public static class errorRecord extends userRecord {
         private Exception error;
 
         public errorRecord(Exception e) {

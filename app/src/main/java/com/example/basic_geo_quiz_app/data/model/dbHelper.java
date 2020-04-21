@@ -26,7 +26,8 @@ public class dbHelper extends SQLiteOpenHelper {
                     " " + userRecord.accountCredentials.COLUMN_TWO_TYPE +
                     ", " + userRecord.accountCredentials.COLUMN_THREE_NAME +
                     " " + userRecord.accountCredentials.COLUMN_THREE_TYPE +
-                    ");";
+                    ", " + userRecord.accountCredentials.COLUMN_FOUR_NAME +
+                    " " + userRecord.accountCredentials.COLUMN_FOUR_TYPE + ");";
 
     public static final String SQL_CREATE_ACCOUNT_DETAILS=
             "CREATE TABLE " + userRecord.accountDetails.TABLE_NAME + " (" +
@@ -158,7 +159,6 @@ public class dbHelper extends SQLiteOpenHelper {
 
         this.onCreate(db);
     }
-
 
 
     private static List readCSV(InputStream csvStream) {
