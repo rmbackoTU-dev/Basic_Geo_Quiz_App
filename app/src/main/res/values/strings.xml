@@ -12,10 +12,17 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_password">Password must be >8 characters &#xD;&#xA;
+    Password must contain a capital letter, lower case letter, &#xD;&#xA;
+        and one of the following characters ~ ! @ # $ % ^ &amp; * ? .</string>
     <string name="login_failed">"Login failed"</string>
     <string name="question_text"> Question Text</string>
     <string name="stat_text">User\'s Statistics</string>
     <string name="stat_correct_text">User\'s Correct Answers</string>
     <string name="stat_incorrect_text">User\'s Incorrect Answers</string>
+    <string name="first_name_error">Must provide a first name. &#xD;&#xA;Use only alphanumeric characters</string>
+    <string name="last_name_error">Must provide a last name. &#xD;&#xA; Use only alphanumeric characters</string>
+    <string name="email_error">Must provide a email address. &#xD;&#xA; &lt;username&gt;@&lt;domain&gt; .</string>
+    <string name="empty_password_error">A password and repeat password must be entered.</string>
+
 </resources>

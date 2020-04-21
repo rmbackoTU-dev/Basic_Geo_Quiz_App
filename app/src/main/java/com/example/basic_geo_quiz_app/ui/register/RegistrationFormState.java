@@ -7,23 +7,23 @@ import androidx.annotation.Nullable;
  */
 public class RegistrationFormState {
     @Nullable
-    private String emailError;
+    private Integer emailError;
     @Nullable
-    private String passwordError;
+    private Integer passwordError;
     @Nullable
-    private String repeatPasswordError;
+    private Integer repeatPasswordError;
     @Nullable
-    private String firstNameError;
+    private Integer firstNameError;
     @Nullable
-    private String lastNameError;
+    private Integer lastNameError;
     private boolean dataVaild;
 
 
-    public RegistrationFormState(@Nullable String emailError,
-                                 @Nullable String passwordError,
-                                 @Nullable String repeatPasswordError,
-                                 @Nullable String firstNameError,
-                                 @Nullable String lastNameError) {
+    public RegistrationFormState(@Nullable Integer emailError,
+                                 @Nullable Integer passwordError,
+                                 @Nullable Integer repeatPasswordError,
+                                 @Nullable Integer firstNameError,
+                                 @Nullable Integer lastNameError) {
         this.emailError = emailError;
         this.passwordError = passwordError;
         this.repeatPasswordError = repeatPasswordError;
@@ -33,6 +33,7 @@ public class RegistrationFormState {
     }
 
     public RegistrationFormState(boolean vaild) {
+
         this.emailError = null;
         this.passwordError = null;
         this.repeatPasswordError = null;
@@ -43,27 +44,27 @@ public class RegistrationFormState {
     }
 
     @Nullable
-    public String getEmailError() {
+    public Integer getEmailError() {
         return emailError;
     }
 
     @Nullable
-    public String getPasswordError() {
+    public Integer getPasswordError() {
         return passwordError;
     }
 
     @Nullable
-    public String getRepeatPasswordError() {
+    public Integer getRepeatPasswordError() {
         return repeatPasswordError;
     }
 
     @Nullable
-    public String getFirstNameError() {
+    public Integer getFirstNameError() {
         return firstNameError;
     }
 
     @Nullable
-    public String getLastNameError() {
+    public Integer getLastNameError() {
         return lastNameError;
     }
 
