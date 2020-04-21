@@ -1,5 +1,6 @@
 package com.example.basic_geo_quiz_app.ui.register;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -22,7 +23,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
-        RegisterViewModel registerViewModel = ViewModelProviders.of(this, new RegisterViewModelFactory())
+        final RegisterViewModel registerViewModel = ViewModelProviders.of(this, new RegisterViewModelFactory())
                 .get(RegisterViewModel.class);
 
         final EditText firstName = findViewById(R.id.firstNameEdit);
@@ -36,6 +37,31 @@ public class CreateAccountActivity extends AppCompatActivity {
         final TextView passwordError = findViewById(R.id.registerError4);
         final TextView repeatPasswordError = findViewById(R.id.registerError5);
         final Button registerButton = findViewById(R.id.registerButton);
+
+        registerViewModel.getRegistrationForm().observe(this, new Observer<RegistrationFormState>() {
+            @Override
+            public void onChanged(@Nullable RegistrationFormState registrationFormState) {
+                if (registrationFormState == null) {
+                    return;
+                }
+                registerButton.setEnabled(registrationFormState.isDataValid());
+                if (registrationFormState.getFirstNameError() != null) {
+                    firstNameError.setError(getString(registrationFormState.getFirstNameError()));
+                }
+                if (registrationFormState.getLastNameError() != null) {
+                    firstNameError.setError(getString(registrationFormState.getLastNameError()));
+                }
+                if (registrationFormState.getEmailError() != null) {
+                    firstNameError.setError(getString(registrationFormState.getEmailError()));
+                }
+                if (registrationFormState.getPasswordError() != null) {
+                    firstNameError.setError(getString(registrationFormState.getPasswordError()));
+                }
+                if (registrationFormState.getRepeatPasswordError() != null) {
+                    firstNameError.setError(getString(registrationFormState.getRepeatPasswordError()));
+                }
+            }
+        });
 
         TextWatcher afterTextChangeListener = new TextWatcher() {
             @Override
