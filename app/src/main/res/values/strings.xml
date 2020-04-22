@@ -24,5 +24,7 @@
     <string name="last_name_error">Must provide a last name. &#xD;&#xA; Use only alphanumeric characters</string>
     <string name="email_error">Must provide a email address. &#xD;&#xA; &lt;username&gt;@&lt;domain&gt; .</string>
     <string name="empty_password_error">A password and repeat password must be entered.</string>
+    <string name="repeat_password_error">Repeat password must match original</string>
+    <string name="registration_failed">Registration failed, you may have already registered</string>
 
 </resources>

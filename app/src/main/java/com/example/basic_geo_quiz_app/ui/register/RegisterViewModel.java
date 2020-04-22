@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.basic_geo_quiz_app.R;
 import com.example.basic_geo_quiz_app.data.RegistrationRepository;
+import com.example.basic_geo_quiz_app.data.model.userRecord;
 
 import java.util.regex.Pattern;
 
@@ -58,9 +59,31 @@ public class RegisterViewModel extends ViewModel {
                     null, R.string.empty_password_error, null,
                     null));
         }
+        if (!passwordsMatch(password, repeatPassword)) {
+            registrationForm.setValue(new RegistrationFormState(null,
+                    R.string.repeat_password_error, R.string.repeat_password_error, null,
+                    null));
+        }
     }
 
-    private void registerUser() {
+    public userRecord[] registerUser(String firstName, String lastName, String email,
+                                     String password, int credid, int statid, int detailid)
+            throws IllegalArgumentException {
+        userRecord[] newuser = registrationRepository.register(firstName, lastName, email, password, credid,
+                statid, detailid);
+        if (registrationRepository.isRegistered()) {
+            userRecord.accountDetails newUserDetails = (userRecord.accountDetails) newuser[2];
+            userRecord.accountCredentials newUserCreds = (userRecord.accountCredentials) newuser[0];
+
+            registrationResult.setValue(new RegisterResult(new RegisterUserView(
+                    newUserDetails.getFirstName(), newUserDetails.getLastName(),
+                    newUserCreds.getEmail())));
+        } else {
+            registrationResult.setValue(new RegisterResult(R.string.registration_failed));
+        }
+
+        return newuser;
+
 
     }
 
@@ -107,6 +130,11 @@ public class RegisterViewModel extends ViewModel {
         }
         return password != null && lengthCheck && uppperCheck && lowerCheck && specialCharCheck
                 && digitCheck;
+    }
+
+    //password match validation check
+    private boolean passwordsMatch(String password, String repeatPassword) {
+        return password.contentEquals(repeatPassword);
     }
 
 

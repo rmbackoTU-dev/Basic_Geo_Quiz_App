@@ -14,7 +14,8 @@ public class RegisterViewModelFactory implements ViewModelProvider.Factory {
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(RegisterViewModel.class)) {
-            return (T) new RegisterViewModel(new RegistrationRepository(new RegistrationDataSource()));
+            return (T) new RegisterViewModel(new RegistrationRepository(
+                    new RegistrationDataSource()));
         } else {
             throw new IllegalArgumentException("Unknown ViewModel class");
         }
